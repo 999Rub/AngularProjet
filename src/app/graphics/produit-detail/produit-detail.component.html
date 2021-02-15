@@ -1,0 +1,19 @@
+
+<div class="ListContenant">
+
+    <li *ngFor="let pl of produitList" (click)="produitSelected(pl)"  [class.selected]="pl==produitSelected"> {{pl.Name}} {{pl.Texture}} &nbsp; &nbsp;  </li>
+</div>
+
+<div class="formProduitGroup">
+    <form [formGroup]="produitForm" (ngSubmit)="onSubmit()">
+    <label > Name : 
+        <input formControlName="Name">
+    </label>
+    <label > Texture : 
+        <input formControlName="Texture">
+    </label>
+    <button mat-raised-button color="accent" type="submit"> Ajouter </button>
+    </form>
+</div>
+
+
