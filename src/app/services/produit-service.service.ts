@@ -12,14 +12,14 @@ export class ProduitServiceService {
       id: 0,
       Name:"Gel douche",
       Texture: "ecaille",
-      Grammage: 0,
+      Grammage: "0",
       Couleur:"Jaune"
     },
     {
       id: 1,
       Name:"Savon",
       Texture: "lisse",
-      Grammage: 0,
+      Grammage: "0",
       Couleur:"Bleu"
     }
   ]

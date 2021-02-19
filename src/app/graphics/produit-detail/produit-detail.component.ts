@@ -1,3 +1,4 @@
+import { Container } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Produit } from 'src/app/Model/produit';
@@ -16,7 +17,9 @@ export class ProduitDetailComponent implements OnInit {
   public selectedProduit: Produit;
   produitForm =  this.fb.group({
     Name: [''],
-    Texture: ['']
+    Texture: [''],
+    Grammage: [''],
+    Couleur: ['']
   })
   onSubmit(){
     console.log(this.produitForm.value);
@@ -28,7 +31,22 @@ export class ProduitDetailComponent implements OnInit {
     newProduit= this.produitForm.value;
     this.produitList.push(newProduit);
   }
+
+  submitUpdate(pl: Produit){
+    this.produitForm.setValue(this.selectedProduit);
+    
+    for (let plList in this.produitList){
+      if  (pl == this.produitList[plList]){
+        this.produitList[plList] = this.produitForm.value;
+        console.log(this.produitForm.value);
+      }
+    }
+  }
   
+  produitSelected(event, pl: Produit){
+    this.selectedProduit = pl;
+    this.produitForm.setValue(this.selectedProduit);
+  }
 
   constructor(private _produitService:ProduitServiceService, private fb: FormBuilder) { }
 
@@ -37,18 +55,8 @@ export class ProduitDetailComponent implements OnInit {
   }
 
   
-/*
-  produitSelected(produit: Produit){
-    this.produitForm= this.fb.group({
-      id:[''],
-      Name:[''],
-      Texture:[''],
-      Grammage:[''],
-      Couleur:['']
-    })
-    this.produitForm.setValue(produit);
-    this.selectedProduit = produit;
-  }*/
+
+ 
 
 }
 

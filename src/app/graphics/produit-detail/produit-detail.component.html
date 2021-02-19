@@ -1,7 +1,8 @@
 
 <div class="ListContenant">
 
-    <li *ngFor="let pl of produitList" (click)="produitSelected(pl)"  [class.selected]="pl==produitSelected"> {{pl.Name}} {{pl.Texture}} &nbsp; &nbsp;  </li>
+    <li *ngFor="let pl of produitList"  (click)="produitSelected($event ,pl)"> 
+        <span>{{pl.Name}} &nbsp; &nbsp;</span>  </li>
 </div>
 
 <div class="formProduitGroup">
@@ -12,8 +13,37 @@
     <label > Texture : 
         <input formControlName="Texture">
     </label>
+    <label > Grammage : 
+        <input formControlName="Grammage">
+    </label>
+    <label > Couleur : 
+        <input formControlName="Couleur">
+    </label>
     <button mat-raised-button color="accent" type="submit"> Ajouter </button>
     </form>
 </div>
 
+<div class="detailProduit">
+    <div class="heading"> <h3>Detail du produit</h3></div>
+    <div class="content">
+        <div class="formProduitGroup">
+            <form [formGroup]="produitForm" (ngSubmit)="submitUpdate(selectedProduit)" class="formUpdate">
+            <label > Name : 
+                <input formControlName="Name" [value]=selectedProduit.Name>
+            </label>
+            <label > Texture : 
+                <input formControlName="Texture" [value]="selectedProduit.Texture">
+            </label>
+            <label > Grammage : 
+                <input formControlName="Grammage" [value]="selectedProduit.Grammage">
+            </label>
+            <label > Couleur : 
+                <input formControlName="Couleur" [value]="selectedProduit.Couleur">
+            </label>
+            <button mat-raised-button color="warn" type="submit"> Modifier </button>
+            </form>
+        </div>
+        <span> Value :  {{selectedProduit.Texture}} {{selectedProduit.Grammage}} </span>
+    </div>
+</div>
 
