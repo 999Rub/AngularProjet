@@ -1,12 +1,19 @@
 
 <div class="ListContenant">
+    <h3>Liste des produits : </h3>
 
-    <li *ngFor="let pl of produitList"  (click)="produitSelected($event ,pl)"> 
-        <span>{{pl.Name}} &nbsp; &nbsp;</span>  </li>
+    
+        <a  routerLink="./detail-page" routerLinkActive="active">
+            <li *ngFor="let pl of produitList"  (click)="produitSelected($event ,pl)"> 
+                <span>{{pl.Name}} &nbsp; &nbsp;</span> 
+
+            </li>
+        </a>
+    
 </div>
 
 <div class="formProduitGroup">
-    <form [formGroup]="produitForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="produitForm" (ngSubmit)="this._produitService.onSubmit()">
     <label > Name : 
         <input formControlName="Name">
     </label>
@@ -23,27 +30,4 @@
     </form>
 </div>
 
-<div class="detailProduit">
-    <div class="heading"> <h3>Detail du produit</h3></div>
-    <div class="content">
-        <div class="formProduitGroup" >
-            <form [formGroup]="produitForm" (ngSubmit)="submitUpdate(selectedProduit)" class="formUpdate">
-            <label > Name : 
-                <input formControlName="Name" [value]=selectedProduit.Name>
-            </label>
-            <label > Texture : 
-                <input formControlName="Texture" [value]="selectedProduit.Texture">
-            </label>
-            <label > Grammage : 
-                <input formControlName="Grammage" [value]="selectedProduit.Grammage">
-            </label>
-            <label > Couleur : 
-                <input formControlName="Couleur" [value]="selectedProduit.Couleur">
-            </label>
-            <button mat-raised-button color="warn" type="submit"> Modifier </button>
-            </form>
-        </div>
-        <span> Value :  {{selectedProduit.Texture}} {{selectedProduit.Grammage}} </span>
-    </div>
-</div>
 

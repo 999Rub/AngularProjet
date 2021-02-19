@@ -1,8 +1,13 @@
 <h1 style="text-align: center;">Buisness App</h1>
 
-<h3>List des produits : </h3>
+
+<button mat-raised-button color="accent"> 
+    <a  routerLink="produit-detail" routerLinkActive="active"> Afficher la liste des produits</a>
+
+</button>
+
 <br>
-<app-produit-detail></app-produit-detail>
+<router-outlet></router-outlet>
 
 <br>
 

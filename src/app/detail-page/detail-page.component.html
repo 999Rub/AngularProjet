@@ -1,0 +1,29 @@
+<h1> Page de détail du produit</h1>
+
+
+
+<div class="detailProduit" [formGroup]="produitForm">
+    <div class="heading"> <h3>Detail du produit :</h3></div>
+    <div class="content">
+        <div class="formProduitGroup" >
+            <form [formGroup]="produitForm" (ngSubmit)="this._produitService.submitUpdate(this._produitService.selectedProduit)" class="formUpdate">
+            <label > Name : 
+                <input formControlName="Name" [value]=selectedProduit.Name>
+            </label>
+            <label > Texture : 
+                <input formControlName="Texture" [value]="selectedProduit.Texture">
+            </label>
+            <label > Grammage : 
+                <input formControlName="Grammage" [value]="selectedProduit.Grammage">
+            </label>
+            <label > Couleur : 
+                <input formControlName="Couleur" [value]="selectedProduit.Couleur">
+            </label>
+            <br>
+            <button mat-raised-button color="warn" type="submit" [formGroup]="produitForm"> Modifier </button>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<button mat-raised-button color="accent" (click)="this._produitService.onSubmit()">Ajouter</button>

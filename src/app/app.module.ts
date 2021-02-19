@@ -6,11 +6,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProduitDetailComponent } from './graphics/produit-detail/produit-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailPageComponent } from './detail-page/detail-page.component';
+import { RouterModule, RouterOutlet, Routes } from '@angular/router'
+
+const routes: Routes = [
+  {path: 'produit-detail', component: ProduitDetailComponent},
+  {path: 'produit-detail/detail-page', component:DetailPageComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     ProduitDetailComponent,
+    DetailPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
