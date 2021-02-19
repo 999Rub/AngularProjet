@@ -33,12 +33,13 @@ export class ProduitDetailComponent implements OnInit {
   }
 
   submitUpdate(pl: Produit){
-    this.produitForm.setValue(this.selectedProduit);
+    //this.produitForm.setValue(this.selectedProduit);
     
     for (let plList in this.produitList){
       if  (pl == this.produitList[plList]){
         this.produitList[plList] = this.produitForm.value;
         console.log(this.produitForm.value);
+        console.log(this.produitList);
       }
     }
   }

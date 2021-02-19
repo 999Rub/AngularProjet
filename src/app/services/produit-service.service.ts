@@ -9,14 +9,12 @@ import { Produit } from '../Model/produit';
 export class ProduitServiceService {
   public produitList: Produit[] = [
     {
-      id: 0,
       Name:"Gel douche",
       Texture: "ecaille",
       Grammage: "0",
       Couleur:"Jaune"
     },
     {
-      id: 1,
       Name:"Savon",
       Texture: "lisse",
       Grammage: "0",
