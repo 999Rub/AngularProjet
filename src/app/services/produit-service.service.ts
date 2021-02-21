@@ -63,6 +63,10 @@ export class ProduitServiceService {
     
   }
 
+  clearForm(){
+    this.produitForm.reset();
+  }
+
   
 
   
