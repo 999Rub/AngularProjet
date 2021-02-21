@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ProduitServiceService } from '../services/produit-service.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Produit } from 'src/app/Model/produit';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { InterfaceService } from '../services/interface.service';
+
+
 
 
 @Component({
@@ -14,12 +18,15 @@ export class DetailPageComponent implements OnInit {
   public selectedProduit= this._produitService.selectedProduit;
   public produitForm = this._produitService.produitForm;
   public produitFormCreate= this._produitService.produitFormCreate;
+  public durationSnack = 5;
   
   
 
   
 
-  constructor(public _produitService:ProduitServiceService, private fb: FormBuilder ) {}
+  constructor(public _produitService:ProduitServiceService, private fb: FormBuilder, public interfaceService:InterfaceService ) {}
+
+  
 
   ngOnInit(): void {
     console.log(this.produitForm.value)

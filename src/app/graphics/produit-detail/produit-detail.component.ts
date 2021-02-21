@@ -1,7 +1,9 @@
 import { Container } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { AppComponent } from 'src/app/app.component';
 import { Produit } from 'src/app/Model/produit';
+import { InterfaceService } from 'src/app/services/interface.service';
 import { ProduitServiceService } from 'src/app/services/produit-service.service';
 
 
@@ -15,6 +17,7 @@ import { ProduitServiceService } from 'src/app/services/produit-service.service'
 export class ProduitDetailComponent implements OnInit {
   public produitList: Produit[];
   public produitForm = this._produitService.produitForm;
+  public toggle = false;
   
   
 
@@ -31,7 +34,7 @@ export class ProduitDetailComponent implements OnInit {
   
   
 
-  constructor(public _produitService:ProduitServiceService, private fb: FormBuilder) { }
+  constructor(public _produitService:ProduitServiceService, private fb: FormBuilder, public interfaceService: InterfaceService) { }
 
   ngOnInit(): void {
     this.produitList =  this._produitService.getAllProduit();

@@ -4,7 +4,7 @@
 
     
         <a  routerLink="./detail-page" routerLinkActive="active">
-            <li *ngFor="let pl of produitList"  (click)="produitSelected($event ,pl)"> 
+            <li *ngFor="let pl of produitList"  (click)="produitSelected($event ,pl); this.interfaceService.pageToggle()"> 
                 <span>{{pl.Name}} &nbsp; &nbsp;</span> 
 
             </li>

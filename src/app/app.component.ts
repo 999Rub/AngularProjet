@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProduitDetailComponent } from './graphics/produit-detail/produit-detail.component';
+import { InterfaceService } from './services/interface.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'AppTennisPlayer';
 
-
- 
+  
+  public constructor(public interfaceService: InterfaceService){}
 }
-

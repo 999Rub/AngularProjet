@@ -6,7 +6,7 @@
     <div class="heading"> <h3>Detail du produit :</h3></div>
     <div class="content">
         <div class="formProduitGroup" >
-            <form [formGroup]="produitForm" (ngSubmit)="this._produitService.submitUpdate(this._produitService.selectedProduit)" class="formUpdate">
+            <form [formGroup]="produitForm" (ngSubmit)="this._produitService.submitUpdate(this._produitService.selectedProduit); this.interfaceService.modifiedToggle()" class="formUpdate">
             <label > Name : 
                 <input formControlName="Name" [value]=selectedProduit.Name>
             </label>
@@ -20,9 +20,13 @@
                 <input formControlName="Couleur" [value]="selectedProduit.Couleur">
             </label>
             <br>
-            <button mat-raised-button color="warn" type="submit" [formGroup]="produitForm"> Modifier </button>
-            </form>
+            
+            <button mat-raised-button color="warn" type="submit" [formGroup]="produitForm"  > Modifier </button>
+    
+        </form>
+        <br>
         </div>
+        <p> {{ this.interfaceService.modifiedToggle()? ' ': 'Modifié ! ' }} </p>
     </div>
 </div>
 <br>
