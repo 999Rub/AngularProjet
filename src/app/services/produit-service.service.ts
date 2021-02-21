@@ -55,7 +55,7 @@ export class ProduitServiceService {
   submitUpdate(pl: Produit){
     
     for (let plList in this.produitList){
-      if  (pl == this.produitList[plList]){
+      if  (this.selectedProduit == this.produitList[plList]){
         this.produitList[plList] = this.produitForm.value;
         console.log(this.produitForm.value);
         console.log(this.produitList);
