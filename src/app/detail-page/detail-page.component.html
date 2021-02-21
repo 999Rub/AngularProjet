@@ -4,10 +4,10 @@
 
 <div class="detailProduit" [formGroup]="produitForm">
     <div class="heading"> <h3>Detail du produit :</h3></div>
-    <p>Name : {{selectedProduit.Name}} </p>
-    <p>Texture : {{selectedProduit.Texture}} </p>
-    <p>Grammage : {{selectedProduit.Grammage}} </p>
-    <p> Couleur : {{selectedProduit.Couleur}} </p>
+    <p>Name : {{produitForm.value.Name}} </p>
+    <p>Texture : {{produitForm.value.Texture}} </p>
+    <p>Grammage : {{produitForm.value.Grammage}} </p>
+    <p> Couleur : {{produitForm.value.Couleur}} </p>
     <div class="content">
         <div class="formProduitGroup" >
             <form [formGroup]="produitForm" (ngSubmit)="this._produitService.submitUpdate(this._produitService.selectedProduit); this.interfaceService.modifiedToggle()" class="formUpdate">
