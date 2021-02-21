@@ -4,6 +4,10 @@
 
 <div class="detailProduit" [formGroup]="produitForm">
     <div class="heading"> <h3>Detail du produit :</h3></div>
+    <p>Name : {{selectedProduit.Name}} </p>
+    <p>Texture : {{selectedProduit.Texture}} </p>
+    <p>Grammage : {{selectedProduit.Grammage}} </p>
+    <p> Couleur : {{selectedProduit.Couleur}} </p>
     <div class="content">
         <div class="formProduitGroup" >
             <form [formGroup]="produitForm" (ngSubmit)="this._produitService.submitUpdate(this._produitService.selectedProduit); this.interfaceService.modifiedToggle()" class="formUpdate">
@@ -26,7 +30,6 @@
         </form>
         <br>
         </div>
-        <p> {{ this.interfaceService.modifiedToggle()? ' ': 'Modifié ! ' }} </p>
     </div>
 </div>
 <br>
