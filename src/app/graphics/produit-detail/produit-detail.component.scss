@@ -3,7 +3,7 @@
 }
 
 .ListContenant {
-    border: solid black 2px;
+    border: solid white 2px;
     padding: 15px;
 
 }
@@ -24,4 +24,17 @@ li:focus{
 
 a {
     text-decoration: none;
+}
+
+body{
+    background-color: #141313;
+}
+
+div{
+    background-color: #141313;
+
+}
+
+li, p, span, h3, label{
+    color: white;
 }
